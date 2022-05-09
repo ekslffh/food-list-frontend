@@ -1,0 +1,109 @@
+* {
+    font-family: sans-serif;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    background-color: blue;
+    color: white;
+}
+
+img {
+    width: 300px;
+    height: 200px;
+}
+
+body {
+    position: relative;
+    margin: 0 10%;
+    background-color: skyblue;
+
+    .header {
+        font-size: 35px;
+        width: 100%;
+        height: 50px;
+        margin: 20px auto;
+        display: block;
+        text-align: center;
+        background-color: orange;
+    }
+
+    info {
+        width: 100%;
+        background-color: pink;
+        margin: 0;
+        position: relative;
+
+        search {
+            text-align: center;
+            width: 100%;
+            button {
+                position: absolute;
+                height: 35px;
+                right: 0px;
+                width: 20%;
+            }
+            input {
+                width: 70%;
+                height: 30px;
+                text-align: center;
+            }
+
+            .result {
+                margin-top: 10px;
+                height: 250px;
+                position: relative;
+                background-color: red;
+                img {
+                    position: absolute;
+                    top: 15px;
+                    left: 5px;
+                }
+                .text {
+                    position: absolute;
+                    top: 20px;
+                }
+
+                button {
+                    position: absolute;
+                    bottom: 10px;
+                }
+            }
+        }
+
+        repository {
+            height: 200px;
+            text-align: center;
+            .element {
+                height: 250px;
+                position: relative;
+                img {
+                    position: absolute;
+                    left: 20px;
+                }
+                .text {
+                    top: 10%;
+                    position: absolute;
+                    right: 10%;
+                }
+                width: 100%;
+                border: 3px solid black;
+
+                margin-top: 10px;
+                button {
+                    position: absolute;
+                    right: 10px;
+                    bottom: 20px;
+                }
+            }
+        }
+    }
+}
+.footer {
+    background-color: aquamarine;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    height: 30px;
+}

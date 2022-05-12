@@ -1,7 +1,7 @@
 function Header() {
     return(
         <div className='header'>
-            WELCOME FOOD LIST
+            SEARCH PLACE SITE
         </div>
     )
 }

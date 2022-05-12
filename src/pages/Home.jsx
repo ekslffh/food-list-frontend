@@ -5,6 +5,7 @@ import MyList from "../components/MyList";
 import '../scss/Home.scss'
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import {Button} from "@mui/material";
 
 function Home() {
     const [query, setQuery] = useState("");
@@ -24,36 +25,43 @@ function Home() {
     return (
         <>
       <body>
+      <content>
           <Header />
           <info>
               <search>
                   <input placeholder='search' onKeyPress={onKeyPress} onChange={change}/>
-                  <button onClick={click}>검색</button>
+                  <Button className="button" variant="contained" onClick={click}>검색</Button>
                   <div className="result">
                       {data === null ? <h2>검색해주세요</h2> :
                           <>
                               <Search {...data}/>
-                              <button onClick={save}>저장</button>
+                              <Button className="button" variant="contained" onClick={save}>저장</Button>
                           </>
-                          }
+                      }
                   </div>
               </search>
               <repository>
                   <div>
-                      <h3>My List ({list.length})</h3>
+                      <div className="header">My WishList ({list.length})</div>
                   </div>
                   <div>
                       {list.map(a=>{
                           return <div className="element" key={a.index}>
                               <MyList {...a}/>
-                              <button onClick={(e)=>{remove(a.index, e)}}>삭제</button>
+                              <div className="button-list">
+                                  <Button variant="contained" onClick={(e)=>{addVisit(a.index, e)}}>방문추가</Button>
+                                  <Button variant="contained" onClick={(e)=>{remove(a.index, e)}}>삭제</Button>
+                              </div>
                           </div>
                       })}
                   </div>
               </repository>
           </info>
+          <Footer />
+
+      </content>
+
       </body>
-            <Footer />
         </>
     );
 
@@ -95,6 +103,15 @@ function Home() {
                 findAll();
             })
             .catch(err=>console.log(err))
+    }
+
+    function addVisit(index) {
+        axios.post(`/api/restaurant/${index}`)
+            .then(res=> {
+                console.log(res);
+                findAll();
+            })
+            .catch(err=>console.log(err));
     }
 
     function findAll() {
